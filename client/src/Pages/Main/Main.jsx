@@ -127,14 +127,14 @@ function Main({ user }) {
               onKeyDown={fireSearch}
             />
           </div>
-          <div className="enter-email-wrap">
+          {/* <div className="enter-email-wrap">
             <button
               className="main-container-button"
               onClick={startGameWithRandomUser}
             >
               Pick Random Opponent
             </button>
-          </div>
+          </div> */}
           <div className="category-dropdown-wrap">
             <label>Random-Mode if not selected, </label>
             <select
@@ -159,9 +159,9 @@ function Main({ user }) {
               <option value="latin">latin</option>
             </select>
           </div>
-          <button className="go-btn" onClick={createNewGame}>
+          <div className="go-btn" onClick={createNewGame}>
             Go
-          </button>
+          </div>
         </div>
       ) : (
         <>

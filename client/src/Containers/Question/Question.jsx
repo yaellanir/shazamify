@@ -19,7 +19,7 @@ function Question({
   match,
   user,
   setTotalScore,
-  opponentData
+  opponentData,
 }) {
   const [showQuestionCountdown, setShowQuestionCountdown] = useState(true);
   const [generatedRandomOptions, setGeneratedRandomOptions] = useState(null);
@@ -48,7 +48,7 @@ function Question({
     return `${seconds}.${millisecondsRounded}`;
   }
 
-  function calculatePoints() {
+  function calculatePoints(correct) {
     const maxPoints = 1500;
     const decreaseValue = 10;
     const seconds = time.toString().slice(0, -3);
@@ -57,7 +57,7 @@ function Question({
     const displayNum = `${seconds}.${millisecondsRounded}`;
     const pointsLost =
       seconds * 10 * decreaseValue + millisecondsRounded * decreaseValue;
-    const points = maxPoints - pointsLost;
+    const points = correct?  maxPoints - pointsLost : 0;
     console.log({
       seconds,
       milliseconds,
@@ -77,7 +77,8 @@ function Question({
     const correct = winningSong === index;
     const winningSongIndex = winningSong;
     const songGuessed = index;
-    const pointsData = calculatePoints();
+    const pointsData = calculatePoints(correct);
+
     setTotalScore((prev) => prev + pointsData.points);
     setRoundSummary((prev) => [
       ...prev,
@@ -222,7 +223,7 @@ function Question({
         {generatedRandomOptions?.map((song, i) => {
           return (
             <SongChoiceDisplay
-            opponentData={opponentData}
+              opponentData={opponentData}
               key={song.song}
               song={song.song}
               index={i}

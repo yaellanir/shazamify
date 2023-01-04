@@ -40,12 +40,16 @@ matchesRouter.get("/matches", async (req, res) => {
 });
 
 matchesRouter.patch("/matches/me", async (req, res) => {
-  const { matchId, currentRound, lastPlayed, roundSummary } = req.body;
+  const { matchId, currentRound, lastPlayed, roundSummary, wins } = req.body;
+  console.log({ wins });
   try {
     const match = await Match.findById({ _id: matchId });
     match.rounds.push(roundSummary);
     match.currentRound = currentRound;
     match.lastPlayed = lastPlayed;
+    if (wins) {
+      match.wins = wins;
+    }
     match.save();
     console.log(match);
     res.status(200).send(match);

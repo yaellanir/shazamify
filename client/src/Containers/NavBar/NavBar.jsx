@@ -39,6 +39,13 @@ function NavBar({ user, setUser }) {
             <>
             <div onClick={handleLogOut}>Logout</div>
             <div onClick={updateProfile}>Profile</div>
+            <img
+            className="card-img"
+            src={
+              user?.avatar && `data:image/png;base64,${user?.avatar}`
+            }
+            alt="avatar"
+          />
             </>
           ) : (
             <>

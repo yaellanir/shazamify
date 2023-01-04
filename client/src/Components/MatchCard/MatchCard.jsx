@@ -10,6 +10,7 @@ const MatchCard = ({ match, userId, nudge }) => {
   const [opponent, setOpponent] = useState(null);
   const [deleted, setDeleted] = useState(false);
   const navigate = useNavigate();
+
   useEffect(() => {
     const opponentId = match.participants.find(
       (participant) => participant !== userId
@@ -41,6 +42,12 @@ const MatchCard = ({ match, userId, nudge }) => {
     }
   }
 
+  function getScore() {
+    const player = match.createdBy === userId ? "creator" : "opponent";
+    return `${match.wins[player]} : ${
+      match.wins[player === "creator" ? "opponent" : "creator"]
+    }`;
+  }
   return (
     <>
       {deleted ? null : (
@@ -53,7 +60,7 @@ const MatchCard = ({ match, userId, nudge }) => {
             alt="avatar"
           />
           <div>{opponent?.username}</div>
-          <div>score</div>
+          <div>{getScore()}</div>
           <div className="sum-btn-container">
             {nudge ? (
               <button className="sum-btn">NUDGE</button>

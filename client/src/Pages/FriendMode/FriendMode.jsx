@@ -110,6 +110,7 @@ function FriendMode({ user }) {
           category={category}
           turn={turn}
           match={match}
+          score={{ totalScore, opponentScore }}
         />
       )}
     </div>

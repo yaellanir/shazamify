@@ -9,7 +9,7 @@ function TheirTurnMatchSum({ matches, user }) {
     );
     console.log({ theirTurnMatches });
     return theirTurnMatches?.map((match) => {
-      return <MatchCard userId={user.id} match={match} nudge/>;
+      return <MatchCard key={match._id} userId={user.id} match={match} nudge />;
     });
   }
 
