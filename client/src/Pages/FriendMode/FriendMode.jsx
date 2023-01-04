@@ -18,7 +18,8 @@ function FriendMode({ user }) {
   const [roundSummary, setRoundSummary] = useState([]);
   const { match_id, category } = useParams();
   const [match, setMatch] = useState(null);
-
+  const [totalScore, setTotalScore] = useState(0);
+  const [opponentScore, setOpponentScore] = useState(0);
   // console.log(category);
   useEffect(() => {
     async function getMatchData() {
@@ -43,6 +44,16 @@ function FriendMode({ user }) {
     getMatchData();
   }, [match_id]);
 
+  useEffect(() => {
+    if (match?.rounds.length > 0 && match?.createdBy !== user.id) {
+      console.log({ MATCH_INSIDE_FRIENDMODE: match });
+      const lastRoundData = match.rounds[match.rounds.length - 1];
+      setOpponentScore(
+        lastRoundData.reduce((acc, turn) => acc + turn.pointsData.points, 0)
+      );
+    }
+  }, [match]);
+
   setTimeout(() => {
     setShowCountDown(false);
   }, 3000);
@@ -57,6 +68,7 @@ function FriendMode({ user }) {
             alt="userImg"
           />
           <h3 className="userNAME">{user?.username}</h3>
+          <h4 className="score">{totalScore}</h4>
         </div>
         <img className="VS" src={vs} alt="vs" />
         <div className="user-display">
@@ -72,6 +84,7 @@ function FriendMode({ user }) {
           <h3 className="userNAME">
             {opponentData?.data.username || "opponent"}
           </h3>
+          <h4 className="score">{opponentScore}</h4>
         </div>
       </div>
       {showCountDown && <Countdown />}
@@ -83,6 +96,8 @@ function FriendMode({ user }) {
           turn={turn}
           match={match}
           user={user}
+          setTotalScore={setTotalScore}
+          opponentData={opponentData}
         />
       )}
       {turn > NUM_OF_TURNS && (
@@ -91,6 +106,7 @@ function FriendMode({ user }) {
           roundSummary={roundSummary}
           matchId={match_id}
           opponentId={opponentData?.data?._id}
+          opponentData={opponentData}
           category={category}
           turn={turn}
           match={match}

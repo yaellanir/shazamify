@@ -10,6 +10,7 @@ const SongChoiceDisplay = ({
   optionThatWasClicked,
   showOpponentsTime,
   opponentTurnSummary,
+  opponentData
 }) => {
   const className = index === winningSong ? "correct" : "wrong";
   useEffect(() => {
@@ -34,7 +35,12 @@ const SongChoiceDisplay = ({
   return (
     <div className={`answerBox ${styleToShow()}`} onClick={handleClick}>
       {showOpponentsTime && opponentTurnSummary.songGuessed === index && (
+        
         <div className="opponent-time-display">
+          <img src={ opponentData?.data.avatar && `data:image/png;base64,${opponentData?.data.avatar}`
+            }
+            alt="userImg"
+/>
           {timeToHuman(opponentTurnSummary.time)}
         </div>
       )}

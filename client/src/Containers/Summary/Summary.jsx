@@ -2,9 +2,17 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import "./Summary.css";
+import SingleSum from "./SingleSum/SingleSum";
 const API_URL = process.env.API_URL || "http://localhost:3001";
 
-function Summary({ roundSummary, user, opponentId, match, turn }) {
+function Summary({
+  roundSummary,
+  user,
+  opponentId,
+  opponentData,
+  match,
+  turn,
+}) {
   const [totalPoints, setTotalPoints] = useState(
     roundSummary.reduce((acc, turn) => acc + turn.pointsData.points, 0)
   );
@@ -39,36 +47,15 @@ function Summary({ roundSummary, user, opponentId, match, turn }) {
     addRoundToMatchDB();
   }, []);
 
-  function navigateHome() {
-    navigate("/main");
-  }
-  // console.log(roundSummary);
 
   return (
-    <div className="turn-summery-container">
-      <h4>{totalPoints}</h4>
-      {roundSummary.map((round) => {
-        return (
-          <div className="turn-summery-container">
-            <div className="user-sum">
-              {/* <div>{user.username}</div> */}
-              {/* <div>{round.turnNumber}</div> */}
-              {round.correct ? (
-                <div className="correct">V</div>
-              ) : (
-                <div className="wrong">X</div>
-              )}
-              {/* <div {round.correct? className={{ "correct": "wrong"}}}>{round.correct}</div> */}
-              <div>{`${round.choices[round.songGuessed].artist} - `}</div>
-              <div>{round.choices[round.songGuessed].song}</div>
-              <div className="seconds">{`${round.pointsData.displayNum}s`}</div>
-              <div>{round.pointsData.points}</div>
-            </div>
-          </div>
-        );
-      })}
-      <h3> {`Great Job ${user.name}!`} </h3>
-      <button onClick={navigateHome}>Back Home</button>
+    <div className="summery-wrapper">
+      <SingleSum 
+      roundSummary={roundSummary}
+      user={user}
+      opponentData= {opponentData}
+      match={match}
+      turn={turn}  />
     </div>
   );
 }

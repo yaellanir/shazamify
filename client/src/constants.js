@@ -198,7 +198,6 @@ const POP_SONGS = [
   { artist: "Sam Smith", song: "Unholy" },
   { artist: "Rihanna", song: "Love on the Brain" },
   { artist: "Rihanna", song: "under my umbrella" },
-  { artist: "Rihanna", song: "lift me up" },
   { artist: "Rihanna and Mikky Ekko", song: "Stay" },
   { artist: "Luis Fonsi and Daddy Yankee", song: "Despacito" },
   { artist: "Justin Bieber", song: "Sorry" },

@@ -11,15 +11,16 @@ import "./Question.css";
 
 const NUM_OF_OPTIONS = 4;
 
-// {
-//  turnNumber: int,
-//  pointsAcumulated: 0,
-//  isWinner: false,
-//  time: 0.0,
-//  songGuessed: "",
-//  correct: bool,
-// }
-function Question({ turn, setTurn, category, setRoundSummary, match, user }) {
+function Question({
+  turn,
+  setTurn,
+  category,
+  setRoundSummary,
+  match,
+  user,
+  setTotalScore,
+  opponentData
+}) {
   const [showQuestionCountdown, setShowQuestionCountdown] = useState(true);
   const [generatedRandomOptions, setGeneratedRandomOptions] = useState(null);
   const [winningSong, setWinningSong] = useState(null);
@@ -77,6 +78,7 @@ function Question({ turn, setTurn, category, setRoundSummary, match, user }) {
     const winningSongIndex = winningSong;
     const songGuessed = index;
     const pointsData = calculatePoints();
+    setTotalScore((prev) => prev + pointsData.points);
     setRoundSummary((prev) => [
       ...prev,
       {
@@ -120,6 +122,7 @@ function Question({ turn, setTurn, category, setRoundSummary, match, user }) {
       setGeneratedRandomOptions(shuffled.slice(0, NUM_OF_OPTIONS));
     } else {
       const lastRoundData = match.rounds[match.rounds.length - 1];
+      console.log(match);
       const opponentsTurnData = lastRoundData[turn - 1];
       console.log(opponentsTurnData);
       setOpponentTurnSummary(opponentsTurnData);
@@ -216,14 +219,10 @@ function Question({ turn, setTurn, category, setRoundSummary, match, user }) {
           time={time}
           setTime={setTime}
         />
-        {showOpponentsTime && (
-          <div style={{ color: "white", fontSize: "1.5rem" }}>
-            {timeToHuman(opponentTurnSummary.time)}
-          </div>
-        )}
         {generatedRandomOptions?.map((song, i) => {
           return (
             <SongChoiceDisplay
+            opponentData={opponentData}
               key={song.song}
               song={song.song}
               index={i}

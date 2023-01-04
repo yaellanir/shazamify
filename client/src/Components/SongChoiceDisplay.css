@@ -26,10 +26,26 @@ text-shadow:
 0 0 82px rgb(228, 120, 210),
 0 0 102px rgb(236, 123, 236),
 0 0 141px rgb(227, 183, 245);
+position :relative;
 }
 
 
 .answerBox:active {
   transform: scale(0.98);
   box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+.opponent-time-display{
+  position: absolute;
+  left: -90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:10px;
+}
+
+.opponent-time-display img{
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
 }
