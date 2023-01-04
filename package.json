@@ -25,7 +25,7 @@
     "client": "npm run start --prefix client",
     "dev": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "copy": "cp -r client/build server/src",
+    "copy": "cp -r client/build Server/src",
     "render-build": "npm install --prefix client && npm run build --prefix client && npm run copy"
   },
   "keywords": [],
