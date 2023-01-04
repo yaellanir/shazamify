@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import "./Summary.css";
 import SingleSum from "./SingleSum/SingleSum";
+import DoubleSum from "./DoubleSum/DoubleSum";
 const API_URL = process.env.API_URL || "http://localhost:3001";
 
 function Summary({
@@ -50,12 +51,21 @@ function Summary({
 
   return (
     <div className="summery-wrapper">
+      {opponentRoundSummary? 
+      <DoubleSum
+      roundSummary={roundSummary}
+      user={user}
+      opponentData= {opponentData}
+      match={match}
+      turn={turn}
+      opponentRoundSummary={opponentRoundSummary} /> :
       <SingleSum 
       roundSummary={roundSummary}
       user={user}
       opponentData= {opponentData}
       match={match}
       turn={turn}  />
+    }
     </div>
   );
 }

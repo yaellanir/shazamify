@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import "./SingleSum.css"
-// import "./Summary.css";
+
 const API_URL = process.env.API_URL || "http://localhost:3001";
 
 function SingleSum({
