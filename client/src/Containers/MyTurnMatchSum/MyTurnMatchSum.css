@@ -1,0 +1,13 @@
+.MatchSum-container{
+  display:flex;
+  justify-content: space-between;
+  padding:5px 20px;
+}
+
+.nudge-btn{
+  width: 60px;
+  border-radius: 10px;
+  border: 1px solid black;
+  background-color: cadetblue;
+  color: white;
+}

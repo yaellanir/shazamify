@@ -1,0 +1,35 @@
+.answerBox {
+  box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+  cursor: pointer;
+  outline: none;
+  transition: 0.2s all;
+  font-weight: bold;
+  /* font-family: 'Audiowide', cursive; */
+  font-family: "Orbitron", sans-serif;
+  /* font-family: 'Russo One', sans-serif; */
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  width: 250px;
+  height:55px;
+  background-color: rgba(15, 15, 15, 0.699);
+  border: 1px dotted rgb(247, 209, 231);
+  border-radius: 15px;
+color: rgb(218, 213, 221);
+text-align: center;
+letter-spacing: 1.2px;
+color: #fff;
+text-shadow:
+0 0 10px #fff,
+0 0 82px rgb(228, 120, 210),
+0 0 102px rgb(236, 123, 236),
+0 0 141px rgb(227, 183, 245);
+}
+
+
+.answerBox:active {
+  transform: scale(0.98);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}

@@ -1,0 +1,19 @@
+
+.nav-container{
+  display:flex;
+  width: 100vw;
+  height: 50px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+  background-color: #333;
+  color:aliceblue;
+
+}
+.nav-links{
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+

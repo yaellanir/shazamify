@@ -1,0 +1,114 @@
+.register-container {
+  background-color: azure;
+  height: 100%;
+  width: clamp(12.5rem, -10.9375rem + 75vw, 31.25rem);
+  margin: 10px;
+  padding: 10px;
+  border-radius: 15px;
+  line-height: 2.5;
+  /* font-family: 'Poiret One', cursive; */
+  /* font-family: 'Raleway', sans-serif; */
+}
+
+.register-container h2 {
+  font-family: "Poiret One", cursive;
+}
+
+.register-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.register-logo {
+  height: 40px;
+}
+
+.already-member-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+input {
+  border-radius: 10px;
+  border-style: dotted;
+  height: 30px;
+  padding: 0 10px;
+  /* font-family: "Poiret One", cursive; */
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  font-size:16px;
+  /* font-weight: bold; */
+}
+
+.img-input-container{
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+border: 2px dotted #aaa;
+border-radius: 10px;
+padding: 2px 10px;
+background-color: #fff;
+line-height: 25px;
+}
+.img-input-container input {
+  border: none;
+}
+/* .img-input-container label{
+  line-height: normal;
+} */
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.log-btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.log-btn {
+  width: 150px;
+  height: 35px;
+  border: 1px solid #777;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  margin: 20px;
+  height: 55px;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  transition: all 0.4s ease-in-out;
+  background-image: linear-gradient(
+    to right,
+    #667eea,
+    #764ba2,
+    #6b8dd6,
+    #8e37d7
+  );
+  box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+}
+
+.log-btn:hover {
+  /* color: #667eea; */
+  background-position: 100% 0;
+  transition: all 0.4s ease-in-out;
+}
+
+.success-msg {
+  margin-top: 5px;
+  line-height: 16px;
+  color: #667eea;
+}

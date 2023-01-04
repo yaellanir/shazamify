@@ -1,0 +1,194 @@
+.main-container {
+  height: calc(100vh - 50px);
+  background-color: aquamarine;
+  /* background-image: url('../../imgs/main1.jpg'); */
+  background-image: url("../../imgs/main3.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  font-family: "Audiowide", cursive;
+  /* font-family: 'Fredoka One', cursive; */
+  /* font-family: 'Orbitron', sans-serif; */
+  /* font-family: 'Russo One', sans-serif; */
+  /* font-family: 'Silkscreen', cursive; */
+  /* font-family: 'VT323', monospace; */
+}
+
+.findgame-button {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  width: 450px;
+  height: 40px;
+  border: 1px dotted #f5a850;
+  /* font-family: 'Audiowide', cursive; */
+  /* font-family: 'Fredoka One', cursive; */
+  font-family: "Orbitron", sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  /* font-family: 'Russo One', sans-serif; */
+  /* font-family: 'Silkscreen', cursive; */
+  /* font-family: 'VT323', monospace; */
+}
+
+.findgame-button:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowingbn5 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowingbn5 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.findgame-button:active {
+  color: #000;
+}
+
+.findgame-button:active:after {
+  background: transparent;
+}
+
+.findgame-button:hover:before {
+  opacity: 1;
+}
+
+.findgame-button:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #191919;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+.main-turn h3 {
+  letter-spacing: 2px;
+  padding-top: 8px;
+}
+
+.main-btn-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+.main-turns-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+.main-turn {
+  display: flex;
+  flex-direction: column;
+  border: 1px dotted black;
+  border-radius: 15px;
+  width: 450px;
+  height: 250px;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: rgba(0, 0, 0, 0.418);
+  color: white;
+}
+/* popup */
+.search-bar {
+  height: 80%;
+  width: 80%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.418);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+.search-bar h3 {
+  padding: 50px;
+  font-size: 60px;
+  background: linear-gradient(to right, #f32170, #ff6b08, #cf23cf, #eedd44);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+.search-bar input {
+  margin-top: 10px;
+  height: 50px;
+  width: 250px;
+}
+
+.search-bar button {
+  width: 250px;
+  padding: 10px;
+  margin: 30px;
+}
+
+.category-dropdown-wrap {
+  margin-top: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.category-dropdown {
+  margin: 10px;
+  padding: 10px;
+  width: 250px;
+  height: 50px;
+  border: 2px dotted #bbb;
+  border-radius: 10px;
+}
+
+.enter-email-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
