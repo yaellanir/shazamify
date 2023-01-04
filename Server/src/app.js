@@ -2,6 +2,9 @@ import express, { json, response } from "express";
 import cors from "cors";
 import { Server } from "socket.io";
 import http from "http";
+import path from "path";
+import * as url from "url";
+
 import "./Database/mongoose.js";
 import userRouter from "./Routes/user.routes.js";
 import matchesRouter from "./Routes/match.routes.js";
@@ -12,6 +15,7 @@ import deezerRouter from "./Routes/deezer.routes.js";
 // import {socketIO} from "socket.io"
 // import http from "http"
 
+const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 const app = express();
 
 const server = http.Server(app);
@@ -24,6 +28,9 @@ const io = new Server(server, {
 
 app.use(json());
 app.use(cors());
+const publicPath = path.join(__dirname, "build");
+app.use(express.static(publicPath));
+
 app.use(userRouter);
 app.use(matchesRouter);
 app.use(deezerRouter);
@@ -36,6 +43,7 @@ io.on("connection", function (socket) {
     console.log("A user disconnected");
   });
 });
+
 // let server = http.createServer(app);
 // let io = socketIO(server);
 //  server.listen(PORT)
@@ -61,4 +69,9 @@ io.on("connection", function (socket) {
 // app.use((req, res, next) => {
 //   res.status(503).send("Send is currently down, Check back soon!");
 // });
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "build", "index.html"));
+});
+
 export default server;
